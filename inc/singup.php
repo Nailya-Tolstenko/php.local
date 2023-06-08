@@ -1,4 +1,10 @@
 <?php
+
+//Включаем вывод ошибок
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_startup_errors', 0);
+ini_set('display_errors', 'On');
+
 session_start();
 
 //файл отвечает за регистрацию
@@ -13,11 +19,11 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $password_confirm = $_POST['password_confirm'];
 
-if (password === $password_confirm) {
+if ($password === $password_confirm) {
 
 } else {
     $_SESSION['message'] = 'Пароли не совпадают';
-    header(string:'Location: ../reg.php');
+    header('Location: ../reg.php');
 }
 
 ?>
