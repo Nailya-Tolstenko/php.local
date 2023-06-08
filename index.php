@@ -4,6 +4,7 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_startup_errors', 0);
 ini_set('display_errors', 'On');
+
 ?>
 
 <!DOCTYPE html>
@@ -15,21 +16,23 @@ ini_set('display_errors', 'On');
 	<title>Авторизация и Регистрация</title>
     <link rel="stylesheet" href="./css/style.css">
 
- <!--Форма авторизации -->
+</head>
 
- <form action="" method="">
+<body>
 
- 	<label>Логин</label>
-	<input type ="text" placeholder="Ведите свой логин">
-	<label>Пароль</label>
-	<input type ="password" placeholder="Ведите свой пароль">
-	<button>Войти</button>
-	<p>
-		У вас нет аккаунта? - <a href="reg.php">Зарегистрируйтесь</a>!
-	</p>
-</form>
+	<!--Форма авторизации -->
 
-</body>
-</html>
+	<form action="" method="post">
+
+	 	<label>Логин</label>
+		<input type ="text" placeholder="Ведите свой логин">
+		<label>Пароль</label>
+		<input type ="password" placeholder="Ведите свой пароль">
+		<button>Войти</button>
+		<p>
+			У вас нет аккаунта? - <a href="reg.php">Зарегистрируйтесь</a>!
+		</p>
+	</form>
+
 </body>
 </html>
