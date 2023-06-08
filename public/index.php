@@ -14,7 +14,8 @@ ini_set('display_errors', 'On');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Авторизация и Регистрация</title>
     <link rel="stylesheet" href="./css/style.css">
-
+</head>
+<body>
  <!--Форма авторизации -->
 
  <form action="" method="">
@@ -29,7 +30,7 @@ ini_set('display_errors', 'On');
 	</p>
 </form>
 
-</body>
+
 </html>
 </body>
 </html>

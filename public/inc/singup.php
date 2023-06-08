@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 
@@ -9,11 +7,11 @@ session_start();
 //Подключаемся к базе через файл connect.php
 require ('./connect.php');
 
-$full_name = $POST['full_name'];
-$login = $POST['login'];
-$email = $POST['email'];
-$password = $POST['password'];
-$password_confirm = $POST['password_confirm'];
+$full_name = $_POST['full_name'];
+$login = $_POST['login'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$password_confirm = $_POST['password_confirm'];
 
 if (password === $password_confirm) {
 

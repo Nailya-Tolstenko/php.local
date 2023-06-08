@@ -34,7 +34,10 @@ session_start();
     </p>
 
     <p class="msg">       
-       <?= $_SESSION['message'] ?>
+       <?php
+            echo $_SESSION['message'];
+            unset ($_SESSION['message']);
+        ?>
     </p>
     </form>
 </body>
