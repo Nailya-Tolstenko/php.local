@@ -10,40 +10,74 @@ ini_set('display_errors', 'On');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Авторизация и Регистрация</title>
-    <link rel="stylesheet" href="./css/style.css">
-<<<<<<< HEAD:public/index.php
+	<?php 
+		$title = "Новости обо всем";
+			require_once($_SERVER['DOCUMENT_ROOT'].'blocks/head.php'); 
+			$news = getNews (2);
+	?>
+	
 </head>
 <body>
- <!--Форма авторизации -->
-=======
+	<?php require_once($_SERVER['DOCUMENT_ROOT'].'blocks/header.php'); ?>
+	<div id="wrapper">
+		<div id="leftCol">
 
-</head>
->>>>>>> 8281ec4c109b13c699111ebaa3e78fc365e5da8f:index.php
+		<?php
+			for ($i = 0; $i < count($news); $i++) {
 
-<body>
+				if($i == 0) {
+						echo "<div id\"bigArticle\">";
+				}	else {
+						echo "<div class=\"article\">";
+				}
+						echo '<img src="/img/article1.jpg" alt="Статья 1">				
+						<h2>Статья 1</h2>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+							Eveniet ad dolorem deleniti animi repudiandae, 
+							laboriosam adipisci recusandae deserunt possimus hic?
+						</p>
+						<a href="/article.php">
+							<div class="more">Далее</div>
+						</a>
+					</div>';
+						if($i == 0)
+						echo "<div class=\"clear\"><br></br>";
+			}
+		?>
 
-	<!--Форма авторизации -->
+	<!--		<div id="bigArticle">
+				<img src="/img/article1.jpg" alt="Статья 1">
+				<h2>Статья 1</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+					Eveniet ad dolorem deleniti animi repudiandae, 
+					laboriosam adipisci recusandae deserunt possimus hic?
+				</p>
+				<a href="/article.php">
+					<div class="more">Далее</div>
+				</a>
+			</div>
+			<div class="clear"></div>
+			<div class="article">
+				<img src="/img/article1.jpg" alt="Статья 1">
+				<h2>Статья 1</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+					Eveniet ad dolorem deleniti animi repudiandae, 
+					laboriosam adipisci recusandae deserunt possimus hic?
+				</p>
+				<a href="/article.php">
+					<div class="more">Далее</div>
+				</a>				
+			</div>  --->
 
-	<form action="" method="post">
+		</div>
+		<?php require_once($_SERVER['DOCUMENT_ROOT'].'blocks/rightCol.php'); ?>
+	
+	</div>
 
-	 	<label>Логин</label>
-		<input type ="text" placeholder="Ведите свой логин">
-		<label>Пароль</label>
-		<input type ="password" placeholder="Ведите свой пароль">
-		<button>Войти</button>
-		<p>
-			У вас нет аккаунта? - <a href="reg.php">Зарегистрируйтесь</a>!
-		</p>
-	</form>
+	<?php require_once($_SERVER['DOCUMENT_ROOT'].'blocks/footer.php'); ?>
 
-<<<<<<< HEAD:public/index.php
-
-</html>
-=======
->>>>>>> 8281ec4c109b13c699111ebaa3e78fc365e5da8f:index.php
 </body>
 </html>
