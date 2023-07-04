@@ -12,8 +12,8 @@ ini_set('display_errors', 'On');
 <head>
 	<?php 
 		$title = "Новости обо всем";
-			require_once($_SERVER['DOCUMENT_ROOT'].'blocks/head.php'); 
-			$news = getNews (2);
+		require_once($_SERVER['DOCUMENT_ROOT'].'blocks/head.php'); 
+		$news = getNews(3);
 	?>
 	
 </head>
@@ -22,57 +22,35 @@ ini_set('display_errors', 'On');
 	<div id="wrapper">
 		<div id="leftCol">
 
-		<?php
-			for ($i = 0; $i < count($news); $i++) {
+			<?php
 
-				if($i == 0) {
-						echo "<div id\"bigArticle\">";
-				}	else {
-						echo "<div class=\"article\">";
-				}
-						echo '<img src="/img/article1.jpg" alt="Статья 1">				
-						<h2>Статья 1</h2>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-							Eveniet ad dolorem deleniti animi repudiandae, 
-							laboriosam adipisci recusandae deserunt possimus hic?
-						</p>
+				for($i = 0; $i < count($news); $i++) {
+
+					if($i == 0) {
+						echo '<div id="bigArticle">';
+					} else {
+						echo '<div class="article">';
+					}
+
+					echo '<img src="/img/articles/'.$news[$i]['id'].'.jpg" alt="Статья #'.$news[$i]['id'].'">				
+						<h2>'.$news[$i]['title'].'</h2>
+						<p>'.$news[$i]['intro_text'].'</p>
 						<a href="/article.php">
 							<div class="more">Далее</div>
 						</a>
-					</div>';
-						if($i == 0)
-						echo "<div class=\"clear\"><br></br>";
-			}
-		?>
 
-	<!--		<div id="bigArticle">
-				<img src="/img/article1.jpg" alt="Статья 1">
-				<h2>Статья 1</h2>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					Eveniet ad dolorem deleniti animi repudiandae, 
-					laboriosam adipisci recusandae deserunt possimus hic?
-				</p>
-				<a href="/article.php">
-					<div class="more">Далее</div>
-				</a>
-			</div>
-			<div class="clear"></div>
-			<div class="article">
-				<img src="/img/article1.jpg" alt="Статья 1">
-				<h2>Статья 1</h2>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					Eveniet ad dolorem deleniti animi repudiandae, 
-					laboriosam adipisci recusandae deserunt possimus hic?
-				</p>
-				<a href="/article.php">
-					<div class="more">Далее</div>
-				</a>				
-			</div>  --->
+					</div>';
+
+					if($i == 0) {
+						echo '<div class="clear"></div>';
+					}
+					
+				}
+
+			?>
 
 		</div>
+
 		<?php require_once($_SERVER['DOCUMENT_ROOT'].'blocks/rightCol.php'); ?>
 	
 	</div>

@@ -1,35 +1,37 @@
 <?php
 
-error_reporting(E_ALL | E_STRICT);
-ini_set('display_startup_errors', 0);
-ini_set('display_errors', 'On');
+require_once($_SERVER['DOCUMENT_ROOT'].'function/connect.php');
 
-$user = 'root';
-$password = 'root';
-$host = 'localhost';
-$db = 'registration1';
-
-//Блок try catch проверяет подключение к базе
-try {
-  //Если норм то работаем дальше
-  //$pdo - это наша ссылка на подключение к БАЗЕ
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-} catch(PDOException $e) {
-  //Иначе выводим ошибку
-    echo $e->getMessage();
+/**
+ *  Функиця закрытия соеденения с базой данных
+ *  Запускается после запроса или лучше в конце скрипта
+ * 
+ */
+function closeDB() {
+  $GLOBALS['mysqli'] = null;
 }
 
-function getNews () {
-  global $mysqli;
+/**
+ *  Функция возвращает массив новостей из базы
+ * 
+ */
+function getNews($limit) {
+
   connectDB();
-  $result = $mysqli->query("SELECT * FROM 'news' ORDER BY 'id' DESC LIMIT $limit");
+  $result = $GLOBALS['mysqli']->query("SELECT * FROM news ORDER BY id DESC LIMIT $limit");
   closeDB();
-  return resultArray($result);
+
+  return resultToArray($result);
+
 }
 
+/**
+ *  Функция конвертирует данные из запроса в нужный нам массив
+ * 
+ */
 function resultToArray ($result) {
   $array = array ();
-  while (($row = $result->fetch_assoc()) != false)
+  while (($row = $result->fetch()) != false)
     $array[] = $row;
   return $array;
 }

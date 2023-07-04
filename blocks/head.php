@@ -1,5 +1,5 @@
 <?php
-	require_once "function/function.php";
+	require_once($_SERVER['DOCUMENT_ROOT'].'function/function.php');
 ?>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
